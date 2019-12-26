@@ -1,0 +1,30 @@
+require('dotenv').config();
+const express=require('express'),
+      massive=require('massive'),
+      session=require('express-session'),
+      {SERVER_PORT,CONNECTION_STRING,SESSION_SECRET}=process.env,
+      authCtrl=require('./authController'),
+      cartCtrl = require('./cartController'),
+      app=express()
+
+app.use(express.json())
+
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: SESSION_SECRET,
+    cookie: {maxAge: 1000*60*60*24}
+}))
+
+massive(CONNECTION_STRING).then(db => {
+    app.set('db', db)
+    console.log('You did it! DB connected!')
+})
+
+//Auth Endpoints
+app.post('/auth/login', authCtrl.login);
+app.post('/auth/register', authCtrl.register);
+app.post('/auth/logout', authCtrl.logout);
+
+const port=SERVER_PORT || 4090;
+app.listen(port, () => console.log(`Personal Project up and running on ${port}`));
