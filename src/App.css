@@ -2,37 +2,119 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.landingContainer {
+  height: 1115px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.lowerLanding {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-top: 0;
+  margin-bottom: 0;
+  justify-content: space-between;
+}
+
+.lowerLandingImage {
+  background-image: url('https://www.chelseasmessyapron.com/wp-content/uploads/2019/02/Bakery-Style-Chocolate-Chip-Cookies-1.jpg');
+  width: 100%;
+  height: 1215px;
+  margin-top: 0;
+  display: block;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.header {
+  background-color: transparent;
+  height: 100px;
+  width:100%;
+  display: inline-block;
+  justify-content: space-between;
+}
+
+.landingCenter {
+  text-align: center;
+  display: inline-block;
+  margin-top: 350px;
+}
+
+#landingButton {
+  width: 300px;
+  height: 100px;
+  outline: transparent;
+  background-color: #edc646;
+  color: white;
+  font-size: 30px;
+}
+.logoRepeat {
+  color: black
+}
+.logoLanding {
+  text-align: center; 
+  height: 1215px;
+  display: block;
+  width: 100%;
+  color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 0;
+  background-image: url("https://wallpapermemory.com/uploads/793/cookie-wallpaper-hd-1152x900-9005.jpg");
+}
+
+.businessName {
+  font-size: 85px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: transparent;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: transparent;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: transparent;
+  color: lightgrey;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  color: white;
+}
+
+#shoppingcart {
+  background-color: #edc646;
+  color: white;
+  font-size: 20px;
+  outline: transparent;
+  position: absolute;
+  top: 22px;
+  right: 25px;
+  width: 175px;
+  height: 50px
 }

@@ -1,16 +1,12 @@
 import React from 'react'
-import About from './About';
-import Login from './Login';
+import {Link} from 'react-router-dom'
 
 
-function Hamburger(){
-
-
+function Hamburger(props){
+    
 return(
     <div>
-        <About/>
-        <Login/>
-    <button>HamburgerMenu</button>
+        
     </div>
 )
 }

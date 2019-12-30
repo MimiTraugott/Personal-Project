@@ -26,5 +26,11 @@ app.post('/auth/login', authCtrl.login);
 app.post('/auth/register', authCtrl.register);
 app.post('/auth/logout', authCtrl.logout);
 
+
+app.get('/api/products', cartCtrl.getProducts);
+app.post('/api/cart', cartCtrl.addToCart);
+app.get('/api/cart/:id', cartCtrl.getCart);
+
+
 const port=SERVER_PORT || 4090;
 app.listen(port, () => console.log(`Personal Project up and running on ${port}`));

@@ -4,7 +4,9 @@ function ShoppingCart(){
 
 
 return(
-    <div>Shopping Cart Page</div>
+    <div>
+    <button id='shoppingcart'>ShoppingCart</button>
+    </div>
 )
 }
 export default ShoppingCart

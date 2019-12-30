@@ -1,17 +1,17 @@
 import React from 'react';
-import Hamburger from './Components/Hamburger';
-import Header from './Components/Header';
-import Landing from './Components/Landing';
-import OrderPage from './Components/OrderPage';
+import Header from './Components/Header'
+import PageBackround from './Components/PageBackground'
+import routes from './routes';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <PageBackround>
       <Header/>
-      <Hamburger/>
-      <Landing/>
+      {routes}
+      </PageBackround>
  
     </div>
   );
