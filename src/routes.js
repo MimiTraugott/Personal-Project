@@ -5,6 +5,7 @@ import Login from "./Components/Login";
 import OrderPage from "./Components/OrderPage";
 import AboutChip from "./Components/AboutChip"
 import { Switch, Route } from "react-router-dom";
+import ShoppingCart from "./Components/ShoppingCart";
 
 export default (
   <Switch>
@@ -13,5 +14,6 @@ export default (
     <Route path="/login" component={Login} />
     <Route path="/orderpage" component={OrderPage} />
     <Route path="/aboutchip" component={AboutChip} />
+    <Route path="/shoppingcart" component={ShoppingCart}/>
   </Switch>
 );

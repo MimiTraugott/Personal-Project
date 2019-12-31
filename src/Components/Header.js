@@ -1,5 +1,4 @@
 import React from "react";
-import ShoppingCart from "./ShoppingCart";
 import { Link, useLocation } from "react-router-dom";
 
 function Header() {
@@ -15,11 +14,13 @@ function Header() {
           <a href="/">Logo</a>
           <Link to="/menu">
               <a href="javascript:void(0);" class="icon">
-                <i class="fa fa-bars" style={location.pathname === '/' ?{color:'white'} : {color:'black'}}></i>
+                <i class="fa fa-bars" style={location.pathname === '/' ?{color:'white'} : {color:'#edc646'}}></i>
               </a>
           </Link>
         </div>
-        <ShoppingCart />
+        <Link to='/shoppingcart'>
+          <button id="shoppingcart">ShoppingCart</button>
+        </Link>
       </div>
     </div>
   );

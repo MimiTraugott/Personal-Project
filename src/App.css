@@ -55,6 +55,40 @@
   color: white;
   font-size: 30px;
 }
+
+#loginheader {
+  margin-top:300px;
+  margin-right: 860px;
+  font-size: ;
+}
+
+#signinbutton{
+  width: 150px;
+  height: 50px;
+  outline: transparent;
+  background-color: #edc646;
+  color: white;
+  font-size: 15px;
+  margin-top: 25px;
+  margin-right: 803px;
+}
+.sign-in-outer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#loginemailinput {
+  width: 950px;
+  height: 40px;
+}
+
+#loginpasswordinput {
+  width: 950px;
+  height: 40px;
+  margin-top: 25px;
+}
+
 .logoRepeat {
   color: black
 }
@@ -71,6 +105,15 @@
   margin-bottom: 0;
   background-image: url("https://wallpapermemory.com/uploads/793/cookie-wallpaper-hd-1152x900-9005.jpg");
 }
+ #landingordercookieinput {
+   width: 500px;
+   height: 25px;
+ }
+
+ #ladningorderqty {
+   width: 100px;
+   height: 25px;
+ }
 
 .businessName {
   font-size: 85px;
@@ -115,8 +158,7 @@
 
 /* Style the active link (or home/logo) */
 .active {
-  color: white;
-}
+color: white;}
 
 #shoppingcart {
   background-color: #edc646;
@@ -147,4 +189,22 @@
 
 .aboutChip {
   margin-bottom: 30px;
+}
+
+.order-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-image: url('https://www.chelseasmessyapron.com/wp-content/uploads/2019/02/Bakery-Style-Chocolate-Chip-Cookies-1.jpg');
+  width: 70%;
+  height: 1215px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.order-page-image {
+ 
 }

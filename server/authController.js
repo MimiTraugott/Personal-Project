@@ -9,7 +9,7 @@ module.exports = {
         let user = await db.customer.check_customer(email);
         user = user[0];
         if(user){
-            return res.status(400).send('User already exists')
+            return res.status(400).send({message:'User already exists'})
         }
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(password, salt);

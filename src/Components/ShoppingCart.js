@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
+import '../App.css'
 
-function ShoppingCart(){
-
-
-return(
+function ShoppingCart() {
+  return (
     <div>
-    <button id='shoppingcart'>ShoppingCart</button>
+       
+       <input></input>
+       <input></input>
+
     </div>
-)
+  );
 }
-export default ShoppingCart
+export default ShoppingCart;
