@@ -20,15 +20,15 @@ class OrderPage extends Component {
 
   render() {
     const mappedProducts = this.state.products.map((product, i) => {
-      return(
-        <div key={i} className="product-container">
-        <select>
-          <option>{product.product_name}</option>
-        </select>
-        </div>
+        // console.log(product.product_name)
+      return (
+        <option
+          key={i}
+          className="dropdown-menu"
+          value={product.product_name}>{product.product_name}</option>
       );
     });
-    
+
     return (
       <div>
         <div className="order-page">
@@ -37,7 +37,8 @@ class OrderPage extends Component {
           </div>
           <div className="order-page-form">
             <h1>ORDER CHIP COOKIES</h1>
-            {mappedProducts}
+            <select>{mappedProducts}</select>
+            <select>Qty</select>
             <button>Add to cart</button>
           </div>
         </div>
