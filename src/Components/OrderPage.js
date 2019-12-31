@@ -1,9 +1,32 @@
 import React, { Component } from "react";
-import axios from 'axios';
-
+import axios from "axios";
 
 class OrderPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      products: []
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("/api/products")
+      .then(res => {
+        this.setState({ products: res.data });
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
+    const mappedProducts = this.state.products.map((product, i) => {
+      return(
+        <div key={i} className="product-container">
+          <h1>{product.product_name}</h1>
+        </div>
+      );
+    });
+    
     return (
       <div>
         <div className="order-page">
@@ -15,7 +38,7 @@ class OrderPage extends Component {
             <input type="text"></input>
             <input type="text"></input>
             <button>Add to cart</button>
-            <p></p>
+            {mappedProducts}
           </div>
         </div>
       </div>
