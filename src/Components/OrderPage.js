@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class OrderPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       products: []
     };
@@ -17,6 +17,21 @@ class OrderPage extends Component {
       })
       .catch(err => console.log(err));
   }
+
+//   addToCart=(id,price)=> {
+//       if(this.props.customer.email){
+//           axios.post('/api/cart', {
+//               customer_order_id:
+//               this.props.customer.customer_order_id,
+//               product_id: id,
+//               price
+//           }).then(res => {
+//               window.alert('Item added to your cart')
+//           }).catch(err => console.log(err))
+//       } else {
+//           window.alert('please log in')
+//       }
+//   }
 
   render() {
     const mappedProducts = this.state.products.map((product, i) => {
@@ -39,7 +54,7 @@ class OrderPage extends Component {
             <h1>ORDER CHIP COOKIES</h1>
             <select>{mappedProducts}</select>
             <select>Qty</select>
-            <button>Add to cart</button>
+            <button onClick={this.addToCart}>Add to Cart</button>
           </div>
         </div>
       </div>

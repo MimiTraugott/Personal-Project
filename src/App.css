@@ -205,6 +205,25 @@ color: white;}
   background-repeat: no-repeat;
 }
 
-.order-page-image {
- 
+#about-us {
+  font-size: 45px; 
+  margin-top: 100px;
+}
+
+.about-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#about-image {
+  background-image: url("https://i2.wp.com/wellplated.com/wp-content/uploads/2018/01/Coconut-Flour-Coookies-recipe-600x755.jpg");
+  background-repeat: no-repeat;
+  height: 70vh;
+  width: 40%;
+}
+
+.info-text {
+
 }
