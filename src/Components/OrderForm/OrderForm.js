@@ -10,11 +10,11 @@ class OrderForm extends Component {
     };
   }
 
-
   componentDidMount = () => {
     axios
       .get("/api/products")
       .then(res => {
+        console.log(res)
         this.setState({ products: res.data, selectedProductID: res.data[0].product_id });
       })
       .catch(err => console.log(err));

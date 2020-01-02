@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import {connect} from 'react-redux'
-import {setUser} from '../redux/reducer'
+import { connect } from "react-redux";
+import { setUser } from "../redux/reducer";
 import axios from "axios";
 import "../App.css";
 
@@ -10,7 +10,8 @@ class Login extends Component {
     login_password: "",
     register_email: "",
     register_password: "",
-    registering: false
+    registering: false,
+    isValid: false
   };
 
   // arrow function that toggles the registering on state to the oppositie to whatever it currently is using this.setState method
@@ -20,24 +21,34 @@ class Login extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  getDerivedStateFromProps = (props,state) => {
+    if (state.register_email && state.register_password || state.login_email && state.login_password)
+      this.setState({ isValid: true });
+    else this.setState({ isValid: false });
+  };
+
   registerUser = () => {
+    console.log('registerUser', this.state)
+
     const { register_email, register_password } = this.state;
     axios
       .post("/auth/register", {
         email: register_email,
         password: register_password
       })
-      .then(res => this.props.setUser(res.data)) 
-      .catch(err => console.log(err))
-      this.props.history.push('/orderpage');
+      .then(res => this.props.setUser(res.data))
+      .catch(err => console.log(err));
+    this.props.history.push("/orderpage");
   };
   loginUser = () => {
+    console.log('loginUser', this.state)
     const { login_email, login_password } = this.state;
     axios
       .post("/auth/login", { email: login_email, password: login_password })
-      .then(res => this.props.setUser(res.data)) 
-      .catch(err => console.log(err))
-      this.props.history.push('/orderpage')
+      .then(res => this.props.setUser(res.data))
+      .catch(err => console.log(err));
+    this.props.history.push("/orderpage");
   };
 
   render() {
@@ -48,7 +59,7 @@ class Login extends Component {
       register_email
     } = this.state;
     //   console.log(this.state)
-    console.log(this.props)
+    console.log(this.props);
     return (
       <div>
         {this.state.registering ? (
@@ -77,7 +88,7 @@ class Login extends Component {
             </div>
             <div className="sign-in-outer">
               <div className="sign-in-register">
-                <button onClick={this.registerUser} id="signinbutton">
+                <button disabled={!this.state.isValid} onClick={this.registerUser} id="signinbutton">
                   Create Account
                 </button>
                 <h4 onClick={this.onToggle}>Back to Login</h4>
@@ -109,7 +120,11 @@ class Login extends Component {
             </div>
             <div className="sign-in-outer">
               <div className="sign-in-register">
-                <button onClick={this.loginUser} id="signinbutton">
+                <button
+                  disabled={!this.state.isValid} 
+                  onClick={this.loginUser}
+                  id="signinbutton"
+                >
                   Sign In
                 </button>
                 <h4 onClick={this.onToggle}>Create Account</h4>
@@ -122,4 +137,4 @@ class Login extends Component {
     );
   }
 }
-export default connect(null, {setUser})(Login);
+export default connect(null, { setUser })(Login);

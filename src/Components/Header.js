@@ -11,7 +11,6 @@ function Header() {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
         <div class="topnav">
-          {/* <a href="/">Logo</a> */}
           <Link to="/">
             <img
               class="site-header__logo-image site-header__logo-image--transparent"

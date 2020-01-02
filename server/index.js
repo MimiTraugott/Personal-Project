@@ -13,7 +13,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: SESSION_SECRET,
-    cookie: {maxAge: 1000*60*60*24}
+    cookie: {maxAge: 1000*60*60*24, test: 3}
 }))
 
 massive(CONNECTION_STRING).then(db => {
