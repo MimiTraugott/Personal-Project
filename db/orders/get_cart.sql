@@ -1,2 +1,2 @@
-select * from order_items
-where customer_order_id = $1
+select * from cart
+where customer_id = $1

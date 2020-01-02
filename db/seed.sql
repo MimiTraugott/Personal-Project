@@ -12,6 +12,13 @@ product_description text,
 price decimal
 );
 
+create table cart (
+current_cart_id serial primary key,
+customer_id int references customer(customer_id),
+product_id int,
+qty int
+)
+
 create table customer_orders (
 customer_order_id serial primary key,
 customer_id int references customers(customer_id),
