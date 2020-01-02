@@ -18,7 +18,7 @@ qty int
 )
 create table customer_orders (
 customer_order_id serial primary key,
-customer_id int references customers(customer_id),
+customer_id int references customer(customer_id),
 paid boolean
 );
 create table ordered_items (
