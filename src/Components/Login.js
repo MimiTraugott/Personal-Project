@@ -10,11 +10,9 @@ class Login extends Component {
     login_password: "",
     register_email: "",
     register_password: "",
-    registering: false,
-    isValid: false
+    registering: false
   };
 
-  // arrow function that toggles the registering on state to the oppositie to whatever it currently is using this.setState method
   onToggle = () => {
     this.setState({ registering: !this.state.registering });
   };
@@ -22,33 +20,49 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  getDerivedStateFromProps = (props,state) => {
-    if (state.register_email && state.register_password || state.login_email && state.login_password)
-      this.setState({ isValid: true });
-    else this.setState({ isValid: false });
-  };
+  // getDerivedStateFromProps = (props, state) => {
+  //   console.log("test of lifecycle method", this.state);
+  //   if (
+  //     (state.register_email && state.register_password) ||
+  //     (state.login_email && state.login_password)
+  //   )
+  //     this.setState({ isValid: true });
+  //   else this.setState({ isValid: false });
+  // };
 
   registerUser = () => {
-    console.log('registerUser', this.state)
-
+    console.log("registerUser", this.state);
     const { register_email, register_password } = this.state;
+    if (register_email.length == 0)
+      return alert("you must insert a valid email");
     axios
       .post("/auth/register", {
         email: register_email,
         password: register_password
       })
-      .then(res => this.props.setUser(res.data))
-      .catch(err => console.log(err));
-    this.props.history.push("/orderpage");
+      .then(res => {
+        this.props.setUser(res.data);
+        this.props.history.push("/orderpage");
+      })
+      .catch(err => {
+        alert("signup failed");
+        console.log(err);
+      });
   };
   loginUser = () => {
-    console.log('loginUser', this.state)
+    console.log("loginUser", this.state);
     const { login_email, login_password } = this.state;
     axios
       .post("/auth/login", { email: login_email, password: login_password })
-      .then(res => this.props.setUser(res.data))
-      .catch(err => console.log(err));
-    this.props.history.push("/orderpage");
+      .then(res => {
+        console.log("hit login success", res.data);
+        this.props.setUser(res.data);
+        this.props.history.push("/orderpage");
+      })
+      .catch(err => {
+        alert("login failed");
+        console.log(err);
+      });
   };
 
   render() {
@@ -88,7 +102,7 @@ class Login extends Component {
             </div>
             <div className="sign-in-outer">
               <div className="sign-in-register">
-                <button disabled={!this.state.isValid} onClick={this.registerUser} id="signinbutton">
+                <button onClick={this.registerUser} id="signinbutton">
                   Create Account
                 </button>
                 <h4 onClick={this.onToggle}>Back to Login</h4>
@@ -120,11 +134,7 @@ class Login extends Component {
             </div>
             <div className="sign-in-outer">
               <div className="sign-in-register">
-                <button
-                  disabled={!this.state.isValid} 
-                  onClick={this.loginUser}
-                  id="signinbutton"
-                >
+                <button onClick={this.loginUser} id="signinbutton">
                   Sign In
                 </button>
                 <h4 onClick={this.onToggle}>Create Account</h4>

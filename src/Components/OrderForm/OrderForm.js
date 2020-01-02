@@ -20,17 +20,17 @@ class OrderForm extends Component {
       .catch(err => console.log(err));
   }
   handleChange = (e) => {
-    console.log(e.target.value)
+    // console.log(e.target.value)
     this.setState({selectedProductID: parseInt(e.target.value)})
   }
 
   addToCart = () => {
       axios.post("/api/cart", {product_id: this.state.selectedProductID})
       .then(res => {
-          console.log(res)
+          // console.log(res)
       })
       .catch(err => {
-          console.log(err)
+          // console.log(err)
       })
   }
 
