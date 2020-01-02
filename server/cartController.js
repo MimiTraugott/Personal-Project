@@ -6,9 +6,9 @@ module.exports = {
         .catch(err => res.status(500).send(err))
     },
     addToCart: (req, res) => {
-        console.log(req.session);
+        // console.log(req.session);
         const {product_id} = req.body;
-        console.log(product_id)
+        // console.log(product_id)
         const db = req.app.get('db');
         db.orders.add_to_cart({customer_id: req.session.user.customer_id, product_id, qty: 1})
         .then(dbRes => {
@@ -20,7 +20,7 @@ module.exports = {
         })
     },
     getCart: (req, res) => {
-        const customer_id = req.session.user.customer_id;
+        const {customer_id} = req.session.user;
         const db = req.app.get('db');
         db.orders.get_cart([customer_id]).then(cart => {
             res.status(200).send(cart)

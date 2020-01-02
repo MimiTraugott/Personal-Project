@@ -19,21 +19,12 @@ class Login extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  // getDerivedStateFromProps = (props, state) => {
-  //   console.log("test of lifecycle method", this.state);
-  //   if (
-  //     (state.register_email && state.register_password) ||
-  //     (state.login_email && state.login_password)
-  //   )
-  //     this.setState({ isValid: true });
-  //   else this.setState({ isValid: false });
-  // };
-
+  
   registerUser = () => {
     console.log("registerUser", this.state);
+
     const { register_email, register_password } = this.state;
-    if (register_email.length == 0)
+    if (register_email.length === 0)
       return alert("you must insert a valid email");
     axios
       .post("/auth/register", {
@@ -55,7 +46,6 @@ class Login extends Component {
     axios
       .post("/auth/login", { email: login_email, password: login_password })
       .then(res => {
-        console.log("hit login success", res.data);
         this.props.setUser(res.data);
         this.props.history.push("/orderpage");
       })

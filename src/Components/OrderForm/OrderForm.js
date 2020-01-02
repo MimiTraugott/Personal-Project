@@ -27,10 +27,10 @@ class OrderForm extends Component {
   addToCart = () => {
       axios.post("/api/cart", {product_id: this.state.selectedProductID})
       .then(res => {
-          // console.log(res)
+          console.log(res)
       })
       .catch(err => {
-          // console.log(err)
+          console.log(err)
       })
   }
 
