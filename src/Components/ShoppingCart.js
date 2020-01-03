@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 import CartItem from "./CartItem";
@@ -16,7 +17,7 @@ class ShoppingCart extends Component {
 
   componentDidMount() {
     this.getCart();
-    this.getProducts()
+    this.getProducts();
   }
 
   deleteItem = id => {
@@ -26,15 +27,15 @@ class ShoppingCart extends Component {
     });
   };
 
-  getProducts =()=> {
+  getProducts = () => {
     axios
-    .get("/api/products")
-    .then(res => {
-      console.log(res)
-      this.setState({ products: res.data });
-    })
-    .catch(err => console.log(err));
-  }
+      .get("/api/products")
+      .then(res => {
+        console.log(res);
+        this.setState({ products: res.data });
+      })
+      .catch(err => console.log(err));
+  };
 
   getCart = () => {
     axios
@@ -44,22 +45,18 @@ class ShoppingCart extends Component {
       })
       .catch(err => console.log);
   };
- 
-  // priceChanger=(price, id)=>{
-  //   let index=this.state.cart.findIndex(el=>el.product_id===id)
-  //   let test=this.state.cart[index].price
-  //     this.setState({
-  //       cart:[...this.state.cart, test: this.state.quantity*price]
-  //     })
-  // }
-
   render() {
     console.log("quantity", this.state.quantity);
     return (
       <div>
-        {this.state.cart.map((el,i) => (
-        <CartItem data={el} key={i} deleteItem={this.deleteItem}/>
-        ))}
+        <div>
+          {this.state.cart.map((el, i) => (
+            <CartItem data={el} key={i} deleteItem={this.deleteItem} />
+          ))}
+        </div>
+        <Link to="/orderpage">
+          <button>Keep Shopping</button>
+        </Link>
       </div>
     );
   }
