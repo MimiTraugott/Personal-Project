@@ -30,7 +30,8 @@ class OrderForm extends Component {
           console.log(res)
       })
       .catch(err => {
-          console.log(err)
+        // console.log(err.response)
+          alert(err.response.data.message)
       })
   }
 
