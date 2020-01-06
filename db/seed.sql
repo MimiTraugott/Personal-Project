@@ -1,7 +1,8 @@
 create table customer (
     customer_id serial primary key,
     email varchar(100) not null,
-    password varchar(250) not null
+    password varchar(250) not null,
+    username varchar(100)
 );
 create table product (
 product_id serial primary key,

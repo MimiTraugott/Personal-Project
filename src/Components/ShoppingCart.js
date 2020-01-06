@@ -31,7 +31,6 @@ class ShoppingCart extends Component {
     axios
       .get("/api/products")
       .then(res => {
-        console.log(res);
         this.setState({ products: res.data });
       })
       .catch(err => console.log(err));
@@ -41,6 +40,7 @@ class ShoppingCart extends Component {
     axios
       .get(`/api/cart/${this.props.user.customer_id}`)
       .then(res => {
+        console.log(res.data);
         this.setState({ cart: res.data });
       })
       .catch(err => console.log);
