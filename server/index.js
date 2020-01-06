@@ -24,10 +24,8 @@ massive(CONNECTION_STRING).then(db => {
 //Auth Endpoints
 app.post('/auth/login', authCtrl.login);
 app.post('/auth/register', authCtrl.register);
-// app.post('/auth/logout', authCtrl.logout);
 app.get('/auth/userSession', authCtrl.getUserSession);
 app.delete('/auth/userSession', authCtrl.logout);
-
 
 //Cart & Product Endpoints
 app.get('/api/products', cartCtrl.getProducts);
@@ -35,7 +33,6 @@ app.post('/api/cart', cartCtrl.addToCart);
 app.get('/api/cart/:id', cartCtrl.getCart);
 app.delete('/api/cart/:product_id', cartCtrl.deleteItem);
 app.put('/api/cart', cartCtrl.editQty)
-
 
 const port=SERVER_PORT || 4090;
 app.listen(port, () => console.log(`Personal Project up and running on ${port}`));

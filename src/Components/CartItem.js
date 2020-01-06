@@ -5,7 +5,6 @@ class CartItem extends Component {
   state = {
     quantity: this.props.data.qty,
     editing: false
-    // price: this.props.data.price
   };
   handleChange = e => {
     this.setState({

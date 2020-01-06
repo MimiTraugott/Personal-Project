@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { setUser } from "./redux/reducer";
 import routes from "./routes";
 import axios from "axios";
-
 import "./App.css";
 
 class App extends Component {

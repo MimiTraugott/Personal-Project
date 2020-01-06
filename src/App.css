@@ -6,37 +6,10 @@
   height: 1115px;
 }
 
-.lowerLanding {
-  display: flex;
-  margin-top: 0;
-  margin-bottom: 0;
-  justify-content: space-between;
-  padding: 0;
-}
 .landing-logo-image {
   height: 120px;
   width: auto;
   image-rendering: pixelated;
-
-}
-
-.lowerLandingImage {
-  background-image: url('https://www.chelseasmessyapron.com/wp-content/uploads/2019/02/Bakery-Style-Chocolate-Chip-Cookies-1.jpg');
-  width: 70%;
-  height: 1215px;
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  background-position: left;
-  background-repeat: no-repeat;
-}
-.landingOrder {
-  color: black;
-  margin-top: 350px;
-  margin-right: 400px;
-  font-size: 25px;;
-  
-  padding: 0;
 }
 
 .header {
@@ -95,13 +68,9 @@
   margin-top: 25px;
 }
 
-.logoRepeat {
-  color: black
-}
-
 .logoLanding {
   text-align: center; 
-  height: 1215px;
+  height: 100%;
   display: block;
   width: 100%;
   color: white;
@@ -228,8 +197,4 @@ color: white;}
   background-repeat: no-repeat;
   height: 70vh;
   width: 40%;
-}
-
-.info-text {
-
 }

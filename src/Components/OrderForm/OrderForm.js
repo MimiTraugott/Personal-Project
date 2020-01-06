@@ -61,7 +61,6 @@ class OrderForm extends Component {
             <select onChange={e => this.handleChange(e)}>
               {mappedProducts}
             </select>
-            <select>Qty</select>
             <Link to="/shoppingcart">
               <button onClick={this.addToCart}>Add to Cart</button>
             </Link>
