@@ -14,7 +14,7 @@ function Menu(props) {
     })
   }
 
-  const isLoggedIn = props.user.customer_id ? true : false;
+  const isLoggedIn = props.user.user.customer_id ? true : false;
   console.log(props)
   return (
     <div>

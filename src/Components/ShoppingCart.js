@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { setCart } from '../redux/cartReducer';
 import { Link } from "react-router-dom";
@@ -6,49 +6,64 @@ import axios from "axios";
 import "../App.css";
 import CartItem from "./CartItem";
 
-class ShoppingCart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: [],
-      quantity: 1
-    };
-  }
+const ShoppingCart = (props) => {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     products: [],
+  //     quantity: 1
+  //   };
+  // }
+  const [products, getProducts] = useState([])
 
-  componentDidMount() {
-    this.getCart();
-    this.getProducts();
-  }
+  useEffect(() => {
+    axios
+    .get(`/api/cart/${props.user.customer_id}`)
+    .then(res => {
+      props.setCart(res.data);
+    })
+    .catch(err => console.log);
+  }, [] )
 
-  deleteItem = id => {
-    axios.delete(`/api/cart/${id}`).then(res => {
-      alert("Cookie Deleted");
-      this.getCart();
-    });
-  };
-
-  getProducts = () => {
-    console.log(this.props)
+  useEffect(() => {
     axios
       .get("/api/products")
       .then(res => {
-        this.setState({ products: res.data });
+        getProducts(res.data)
       })
       .catch(err => console.log(err));
+  }, [] )
+
+
+  const deleteItem = id => {
+    axios.delete(`/api/cart/${id}`).then(res => {
+      alert("Cookie Deleted");
+      props.setCart();
+    });
   };
 
-  getCart = () => {
-    axios
-      .get(`/api/cart/${this.props.user.customer_id}`)
-      .then(res => {
-        console.log(res.data);
-        this.props.setCart(res.data);
-      })
-      .catch(err => console.log);
-  };
-  render() {
+  // getProducts = () => {
+  //   console.log(this.props)
+  //   axios
+  //     .get("/api/products")
+  //     .then(res => {
+  //       this.setState({ products: res.data });
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
+  // getCart = () => {
+  //   axios
+  //     .get(`/api/cart/${this.props.user.customer_id}`)
+  //     .then(res => {
+  //       console.log(res.data);
+  //       this.props.setCart(res.data);
+  //     })
+  //     .catch(err => console.log);
+  // };
+  
     //calculate cart total
-    let total = this.props.cart.cart.map(el => (
+    let total = props.cart.cart.map(el => (
       el.price * el.qty
     )).reduce((acc, cur) => (
       acc+cur
@@ -58,8 +73,8 @@ class ShoppingCart extends Component {
     return (
       <div>
         <div>
-          {this.props.cart.cart.length ? this.props.cart.cart.map((el, i) => (
-            <CartItem data={el} key={i} deleteItem={this.deleteItem} />
+          {props.cart.cart.length ? props.cart.cart.map((el, i) => (
+            <CartItem data={el} key={i} deleteItem={deleteItem} />
           )): null}
         </div>
           <h1>Cart Total ${total}</h1>
@@ -69,7 +84,7 @@ class ShoppingCart extends Component {
       </div>
     );
   }
-}
+
 
 const mapStateToProps = reduxState => {
   return reduxState;
