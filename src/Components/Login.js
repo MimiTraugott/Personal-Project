@@ -21,8 +21,6 @@ class Login extends Component {
   };
 
   registerUser = () => {
-    console.log("registerUser", this.state);
-
     const { register_email, register_password } = this.state;
     if (register_email.length === 0)
       return alert("you must insert a valid email");
