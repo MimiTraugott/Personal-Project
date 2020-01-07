@@ -38,12 +38,13 @@ class CartItem extends Component {
       price,
       product_id
     } = this.props.data;
+    let newPrice = price * this.state.quantity
     return (
       <div>
         <h1>{product_name}</h1>
         <img src={product_image} alt="Cookies"></img>
         <h3>{product_description}</h3>
-        <h3>${price * this.state.quantity}</h3>
+        <h3>${newPrice}</h3>
         <input
           disabled={!this.state.editing}
           onChange={e => this.handleChange(e)}

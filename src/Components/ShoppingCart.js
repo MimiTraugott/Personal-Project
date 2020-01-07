@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { setCart } from '../redux/cartReducer';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
@@ -9,7 +10,6 @@ class ShoppingCart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cart: [],
       products: [],
       quantity: 1
     };
@@ -28,6 +28,7 @@ class ShoppingCart extends Component {
   };
 
   getProducts = () => {
+    console.log(this.props)
     axios
       .get("/api/products")
       .then(res => {
@@ -41,19 +42,27 @@ class ShoppingCart extends Component {
       .get(`/api/cart/${this.props.user.customer_id}`)
       .then(res => {
         console.log(res.data);
-        this.setState({ cart: res.data });
+        this.props.setCart(res.data);
       })
       .catch(err => console.log);
   };
   render() {
-    console.log("quantity", this.state.quantity);
+    //calculate cart total
+    let total = this.props.cart.cart.map(el => (
+      el.price * el.qty
+    )).reduce((acc, cur) => (
+      acc+cur
+    ), 0)
+    console.log(total);
+
     return (
       <div>
         <div>
-          {this.state.cart.map((el, i) => (
+          {this.props.cart.cart.length ? this.props.cart.cart.map((el, i) => (
             <CartItem data={el} key={i} deleteItem={this.deleteItem} />
-          ))}
+          )): null}
         </div>
+          <h1>Cart Total ${total}</h1>
         <Link to="/orderpage">
           <button>Keep Shopping</button>
         </Link>
@@ -66,4 +75,4 @@ const mapStateToProps = reduxState => {
   return reduxState;
 };
 
-export default connect(mapStateToProps)(ShoppingCart);
+export default connect(mapStateToProps, {setCart})(ShoppingCart);
