@@ -1,36 +1,37 @@
-import React, { Component } from "react";
-import {injectStripe,CardElement} from "react-stripe-elements";
-import axios from 'axios'
-
+import React, { Component, useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { injectStripe, CardElement } from "react-stripe-elements";
+import axios from "axios";
+import { chargeComplete } from "../redux/cartReducer";
 
 require("dotenv").config();
 
-class CheckoutForm extends Component {
-  constructor() {
-    super();
-    this.state = { complete: false };
-    this.submit = this.submit.bind(this);
-  }
+function CheckoutForm(props) {
+  const [complete, setComplete] = useState(false);
+  const dispatch = useDispatch()
 
-  async submit(ev) {
-    let { token } = await this.props.stripe.createToken({ name: "Name" });
-    console.log(token)
-    let response = await axios.post("/charge", {token});
+  useEffect(() => {
+    if (complete) dispatch(chargeComplete());
+  }, [complete]);
+  const submit = async ev => {
+    let { token } = await props.stripe.createToken({ name: "Name" });
+    console.log(token);
+    let response = await axios.post("/charge", { token });
     //pass in amount above in your axios call?
-    console.log(response)
-    if (response.ok) this.setState({complete:true});
-  }
+    console.log(response);
+    if (response.data.status === "succeeded") {
+      setComplete(true);
+    }
+  };
 
-  render() {
-      if(this.state.complete) return<h1>Purchase Complete</h1>
-    return (
-      <div className="checkout">
-        <p>Would you like to complete your purchase?</p>
-        <CardElement />
-        <button onClick={this.submit}>Purchase</button>
-      </div>
-    );
-  }
+  if (complete) return (<h1>Purchase Complete</h1>);
+  return (
+    <div className="checkout">
+      <p>Would you like to complete your purchase?</p>
+      <CardElement />
+      <button onClick={submit}>Purchase</button>
+    </div>
+  );
 }
 
 export default injectStripe(CheckoutForm);

@@ -9,14 +9,6 @@ import CartItem from "./CartItem";
 import CheckoutForm from "./CheckoutForm";
 
 const ShoppingCart = props => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     products: [],
-  //     quantity: 1
-  //   };
-  // }
-  const [getProducts] = useState([]);
 
   useEffect(() => {
     axios
@@ -27,15 +19,6 @@ const ShoppingCart = props => {
       .catch(err => console.log);
   }, []);
 
-  useEffect(() => {
-    axios
-      .get("/api/products")
-      .then(res => {
-        getProducts(res.data);
-      })
-      .catch(err => console.log(err));
-  }, []);
-
   const deleteItem = id => {
     axios.delete(`/api/cart/${id}`).then(res => {
       alert("Cookie Deleted");
@@ -43,25 +26,6 @@ const ShoppingCart = props => {
     });
   };
 
-  // getProducts = () => {
-  //   console.log(this.props)
-  //   axios
-  //     .get("/api/products")
-  //     .then(res => {
-  //       this.setState({ products: res.data });
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
-  // getCart = () => {
-  //   axios
-  //     .get(`/api/cart/${this.props.user.customer_id}`)
-  //     .then(res => {
-  //       console.log(res.data);
-  //       this.props.setCart(res.data);
-  //     })
-  //     .catch(err => console.log);
-  // };
 
   //calculate cart total
   let total = props.cart.cart
