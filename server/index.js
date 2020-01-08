@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express=require('express'),
+      path=require('path'),
       massive=require('massive'),
       session=require('express-session'),
       {SERVER_PORT,CONNECTION_STRING,SESSION_SECRET}=process.env,
@@ -9,6 +10,7 @@ const express=require('express'),
 
 app.use(express.json())
 app.use(require("body-parser").text())
+app.use( express.static(`${__dirname}/../build`))
 
 app.use(session({
     resave: false,
@@ -37,6 +39,11 @@ app.put('/api/cart', cartCtrl.editQty)
 
 //Stripe Endpoint
 app.post("/charge", cartCtrl.charge)
+
+//Hosting Endpoint
+app.get('*', (req,res)=> {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})
 
 
 const port=SERVER_PORT || 4090;
