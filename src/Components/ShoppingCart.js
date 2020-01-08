@@ -9,6 +9,7 @@ import CartItem from "./CartItem";
 import CheckoutForm from "./CheckoutForm";
 
 const ShoppingCart = props => {
+  let [itemsChanged, setItemsChanged] = useState(false)
 
   useEffect(() => {
     axios
@@ -17,7 +18,7 @@ const ShoppingCart = props => {
         props.setCart(res.data);
       })
       .catch(err => console.log);
-  }, []);
+  }, [itemsChanged]);
 
   const deleteItem = id => {
     axios.delete(`/api/cart/${id}`).then(res => {
@@ -38,7 +39,7 @@ const ShoppingCart = props => {
       <div>
         {props.cart.cart.length
           ? props.cart.cart.map((el, i) => (
-              <CartItem data={el} key={i} deleteItem={deleteItem} />
+              <CartItem setItemsChanged={setItemsChanged} data={el} key={i} deleteItem={deleteItem} />
             ))
           : null}
       </div>

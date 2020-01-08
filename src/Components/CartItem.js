@@ -19,9 +19,10 @@ class CartItem extends Component {
       )
       .then(res => {
         alert("Your new quantity has been saved");
-        this.toggleEdit();
+        this.toggleEdit()
+        this.props.setItemsChanged(Math.random());
       })
-      .catch(err => alert("there was an error in updating your item"));
+      .catch(err => {console.log('edit item err', err);alert("there was an error in updating your item")});
   };
 
   toggleEdit = () => {
