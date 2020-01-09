@@ -20,7 +20,11 @@ function CheckoutForm(props) {
     //pass in amount above in your axios call?
     console.log(response);
     if (response.data.status === "succeeded") {
-      setComplete(true);
+      setComplete(true)
+      axios.post('/api/email')
+      .then(res => {
+        console.log("email sent")
+      });
     }
   };
 

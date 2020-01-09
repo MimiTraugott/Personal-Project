@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Components/Header";
-import {StripeProvider} from 'react-stripe-elements';
+import { StripeProvider } from "react-stripe-elements";
 import PageBackround from "./Components/PageBackground";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -9,9 +9,9 @@ import routes from "./routes";
 import axios from "axios";
 import "./App.css";
 
-require('dotenv').config();
+require("dotenv").config();
 
-const {REACT_APP_STRIPEPUBLISH}=process.env
+const { REACT_APP_STRIPEPUBLISH } = process.env;
 
 class App extends Component {
   constructor(props) {
@@ -23,27 +23,25 @@ class App extends Component {
   }
 
   checkIfUserIsLoggedIn = () => {
-    console.log("hit");
     axios
       .get("/auth/userSession")
       .then(res => {
         this.props.setUser(res.data);
       })
       .catch(err => {
-        console.log(err);
+        console.log("userNotLoggedIn", err);
       });
   };
 
   render() {
-    console.log(process.env);
     return (
       <StripeProvider apiKey={REACT_APP_STRIPEPUBLISH}>
-      <div className="App">
-        <PageBackround>
-          <Header />
-          {routes}
-        </PageBackround>
-      </div>
+        <div className="App">
+          <PageBackround>
+            <Header />
+            {routes}
+          </PageBackround>
+        </div>
       </StripeProvider>
     );
   }

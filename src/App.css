@@ -35,10 +35,12 @@
   font-size: 30px;
 }
 
-#loginheader {
-  margin-top:300px;
-  margin-right: 860px;
-  font-size: ;
+#login-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 #signinbutton{
@@ -51,21 +53,22 @@
   margin-top: 25px;
   margin-right: 803px;
 }
-.sign-in-outer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
 
 #loginemailinput {
   width: 950px;
   height: 40px;
+  background-color: lightgray;
+  color: white;
+  border: none;
 }
 
 #loginpasswordinput {
   width: 950px;
   height: 40px;
   margin-top: 25px;
+  background-color: lightgray;
+  color: white;
+  border: none;
 }
 
 .logoLanding {
@@ -80,16 +83,6 @@
   margin-bottom: 0;
   background-image: url("https://wallpapermemory.com/uploads/793/cookie-wallpaper-hd-1152x900-9005.jpg");
 }
- #landingordercookieinput {
-   width: 500px;
-   height: 25px;
- }
-
- #ladningorderqty {
-   width: 100px;
-   height: 25px;
- }
-
 .businessName {
   font-size: 85px;
   color: white;

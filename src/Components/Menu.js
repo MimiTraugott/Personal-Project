@@ -10,7 +10,7 @@ function Menu(props) {
     axios.delete('/auth/userSession').then((res) => {
       props.history.push('/')
       props.setUser({})
-      console.log('this worked???')
+      console.log('delete working')
     })
   }
 

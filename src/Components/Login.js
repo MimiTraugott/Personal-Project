@@ -35,12 +35,11 @@ class Login extends Component {
       })
       .catch(err => {
         alert("signup failed");
-        console.log(err);
+        console.log("register failed", err);
       });
   };
 
   loginUser = () => {
-    console.log("loginUser", this.state);
     const { login_email, login_password } = this.state;
     axios
       .post("/auth/login", { email: login_email, password: login_password })
@@ -50,7 +49,7 @@ class Login extends Component {
       })
       .catch(err => {
         alert("login failed");
-        console.log(err);
+        console.log("login failed", err);
       });
   };
 
@@ -61,10 +60,8 @@ class Login extends Component {
       register_password,
       register_email
     } = this.state;
-    //   console.log(this.state)
-    console.log(this.props);
     return (
-      <div>
+      <div id="login-page">
         {this.state.registering ? (
           <div>
             <div>
@@ -90,8 +87,8 @@ class Login extends Component {
                 id="loginpasswordinput"
               ></input>
             </div>
-            <div className="sign-in-outer">
-              <div className="sign-in-register">
+            <div>
+              <div>
                 <button onClick={this.registerUser} id="signinbutton">
                   CREATE
                 </button>
@@ -100,7 +97,7 @@ class Login extends Component {
             </div>
           </div>
         ) : (
-          <div id="loginheader">
+          <div>
             <h1>Log In</h1>
             <h3>Please Log in to place an order</h3>
             <div>
@@ -122,8 +119,8 @@ class Login extends Component {
                 id="loginpasswordinput"
               ></input>
             </div>
-            <div className="sign-in-outer">
-              <div className="sign-in-register">
+            <div>
+              <div>
                 <button onClick={this.loginUser} id="signinbutton">
                   Sign In
                 </button>

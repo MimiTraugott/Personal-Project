@@ -16,16 +16,9 @@ current_cart_id serial primary key,
 customer_id int references customer(customer_id),
 product_id int,
 qty int
-)
-create table customer_orders (
+);
+create table customer_order (
 customer_order_id serial primary key,
 customer_id int references customer(customer_id),
 paid boolean
-);
-create table ordered_items (
-order_item_id serial primary key,
-customer_order_id int references customer_order(customer_order_id),
-product_id int references products(product_id),
-qty int,
-price decimal
 );

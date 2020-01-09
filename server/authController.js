@@ -15,6 +15,7 @@ module.exports = {
         const hash = bcrypt.hashSync(password, salt);
         let newUser = await db.customer.register_customer(email, hash)
         newUser = newUser[0];
+        console.log(newUser)
         //delete newUser.password
         let userCart = await db.orders.create_order(newUser.customer_id)
         userCart = userCart[0];

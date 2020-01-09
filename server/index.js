@@ -1,11 +1,11 @@
 require('dotenv').config();
 const express=require('express'),
-      path=require('path'),
       massive=require('massive'),
       session=require('express-session'),
       {SERVER_PORT,CONNECTION_STRING,SESSION_SECRET}=process.env,
       authCtrl=require('./authController'),
       cartCtrl = require('./cartController'),
+      nodemailer=require('./nodemailer')
       app=express()
 
 app.use(express.json())
@@ -40,10 +40,8 @@ app.put('/api/cart', cartCtrl.editQty)
 //Stripe Endpoint
 app.post("/charge", cartCtrl.charge)
 
-//Hosting Endpoint
-app.get('*', (req,res)=> {
-    res.sendFile(path.join(__dirname, '../build/index.html'))
-})
+//Nodemailer Endpoint
+app.post('/api/email', nodemailer.email)
 
 
 const port=SERVER_PORT || 4090;
