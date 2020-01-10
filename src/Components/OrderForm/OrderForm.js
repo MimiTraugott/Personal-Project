@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 class OrderForm extends Component {
@@ -45,25 +45,46 @@ class OrderForm extends Component {
     const mappedProducts = this.state.products.map((product, i) => {
       // console.log(product.product_name)
       return (
-        <option key={i} className="dropdown-menu" value={product.product_id}>
+        <option key={i} value={product.product_id}>
           {product.product_name}
         </option>
       );
     });
     return (
-      <div>
+      <div className="main-order-page">
         <div className="order-page">
           <div>
             <div className="order-page-image"></div>
           </div>
           <div className="order-page-form">
             <h1>ORDER CHIP COOKIES</h1>
-            <select onChange={e => this.handleChange(e)}>
+            <h3>$10.00</h3>
+            <select class="select-css" onChange={e => this.handleChange(e)}>
               {mappedProducts}
             </select>
-            <Link to="/shoppingcart">
-              <button onClick={this.addToCart}>Add to Cart</button>
-            </Link>
+            <div>
+              <Link to="/shoppingcart">
+                <button class="addtocart" onClick={this.addToCart}>
+                  Add to Cart
+                </button>
+              </Link>
+              <div>
+                <ul>
+                  Four big, warm, melt in your mouth, delicious Chip™ cookies.
+                  <li>
+                    OG™ — our signature gourmet award winning chocolate chip
+                    cookie
+                  </li>
+                  <li>
+                    Mini OGs — our signature gourmet awarding winning chocolate
+                    chip cookie miniaturized | 9 per box | |January CHIP™ OF THE
+                    MONTH|
+                  </li>
+                  <li></li>
+                </ul>
+                <p></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

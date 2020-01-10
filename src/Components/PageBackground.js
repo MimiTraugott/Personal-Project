@@ -1,15 +1,16 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
+import React from "react";
+import { useLocation } from "react-router-dom";
 
-function PageBackground(props){
+function PageBackground(props) {
+  const location = useLocation();
 
-    const location = useLocation()
-
-    return(
-        <div className={location.pathname ==='/' ? "logoLanding" : "logoRepeat"}>
-            {props.children}
-        </div>
-    )
+  return (
+    <div class ="mainpagestyletest">
+      <div className={location.pathname === "/" ? "logoLanding" : "logoRepeat"}>
+        {props.children}
+      </div>
+    </div>
+  );
 }
 
-export default PageBackground
+export default PageBackground;

@@ -3,7 +3,7 @@
 }
 
 .landingContainer {
-  height: 1115px;
+  height: 100vh;
 }
 
 .landing-logo-image {
@@ -15,7 +15,7 @@
 .header {
   background-color: transparent;
   height: 100px;
-  width:100%;
+  width: 100%;
   display: inline-block;
   justify-content: space-between;
 }
@@ -23,8 +23,14 @@
 .landingCenter {
   text-align: center;
   display: inline-block;
-  margin-top: 350px;
+  margin-top: 290px;
 }
+@media (max-width: 650px){
+  .landingCenter {
+    margin-top: 200px;
+  }
+}
+
 
 #landingButton {
   width: 300px;
@@ -34,6 +40,13 @@
   color: white;
   font-size: 30px;
 }
+@media (max-width: 650px){
+  #landingButton {
+    width:200px;
+    height: 75px;
+    font-size: 20px;
+  }
+}
 
 #login-page {
   display: flex;
@@ -41,38 +54,74 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  margin-top: 250px;
+}
+@media(max-width: 800px){
+  #login-page{
+    margin-top: 150px
+  }
+}
+@media(max-width: 650px){
+  #login-page{
+    margin-top: 100px;
+  }
 }
 
-#signinbutton{
+#signinbutton {
   width: 150px;
   height: 50px;
   outline: transparent;
   background-color: #edc646;
   color: white;
-  font-size: 15px;
+  font-size: 20px;
   margin-top: 25px;
   margin-right: 803px;
+}
+@media (max-width:800px){
+  #signinbutton{
+    width: 650px;
+  }
 }
 
 #loginemailinput {
   width: 950px;
-  height: 40px;
-  background-color: lightgray;
-  color: white;
+  height: 50px;
+  background-color: #f1f1f1;
+  color: black;
   border: none;
 }
 
 #loginpasswordinput {
   width: 950px;
-  height: 40px;
+  height: 50px;
   margin-top: 25px;
-  background-color: lightgray;
-  color: white;
+  background-color: #f1f1f1 ;
+  color:black;
   border: none;
+}
+@media(max-width: 800px){
+  #loginemailinput{
+    width: 650px;
+  }
+}
+@media (max-width: 650px){
+  #loginemailinput{
+    width: 475px;
+  }
+}
+@media(max-width: 800px){
+  #loginpasswordinput{
+    width: 650px;
+  }
+}
+@media (max-width: 650px){
+  #loginpasswordinput{
+    width: 475px;
+  }
 }
 
 .logoLanding {
-  text-align: center; 
+  text-align: center;
   height: 100%;
   display: block;
   width: 100%;
@@ -83,9 +132,15 @@
   margin-bottom: 0;
   background-image: url("https://wallpapermemory.com/uploads/793/cookie-wallpaper-hd-1152x900-9005.jpg");
 }
+
 .businessName {
   font-size: 85px;
   color: white;
+}
+@media (max-width: 650px){
+  .businessName{
+    font-size:60px;
+  }
 }
 
 /* Style the navigation menu */
@@ -126,7 +181,8 @@
 
 /* Style the active link (or home/logo) */
 .active {
-color: white;}
+  color: white;
+}
 
 #shoppingcart {
   background-color: #edc646;
@@ -137,20 +193,28 @@ color: white;}
   top: 22px;
   right: 25px;
   width: 175px;
-  height: 50px
+  height: 50px;
 }
 
+@media(max-width: 650px){
+  #shoppingcart{
+    font-size: 10px;
+    height: 25px;
+    width: 85px;
+  }
+}
+
+/* MENU PAGE*/
+
 .aboutLinks {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   display: flex;
   flex-direction: column;
   margin-top: 200px;
 }
-
 .aboutLogin {
   margin-bottom: 30px;
 }
-
 .aboutOrderNow {
   margin-bottom: 30px;
 }
@@ -159,30 +223,68 @@ color: white;}
   margin-bottom: 30px;
 }
 
-.order-page {
+@media (max-width: 650px) {
+  .aboutLogin {
+    font-size: 30px;
+  }
+  .aboutOrderNow{
+    font-size: 30px;
+  }
+  .aboutChip{
+    font-size: 30px;
+  }
+}
+.main-order-page{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-image: url('https://www.chelseasmessyapron.com/wp-content/uploads/2019/02/Bakery-Style-Chocolate-Chip-Cookies-1.jpg');
-  width: 70%;
+  align-items: center;
+
+}
+
+.order-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-image: url("https://www.chelseasmessyapron.com/wp-content/uploads/2019/02/Bakery-Style-Chocolate-Chip-Cookies-1.jpg");
+  width: 100%;
   height: 1215px;
   margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
+  margin-right: 300px;
+  padding-right:zero;
   background-position: left;
   background-repeat: no-repeat;
 }
-
 #about-us {
-  font-size: 45px; 
+  font-size: 60px;
   margin-top: 100px;
+}
+.order-page-form{
+  margin-bottom: 850px;
+}
+.select-css{
+  width: 650px;
+  height: 50px;
+  background-color: #f1f1f1;
+  color: black;
+  border: none;
+
+}
+.addtocart{
+  background-color: #edc646;
+  margin-top: 10px;
+  width: 175px;
+  height: 50px;
+  color: white;
+  margin-right: 474px;
 }
 
 .about-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 #about-image {

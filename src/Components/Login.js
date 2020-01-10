@@ -66,7 +66,7 @@ class Login extends Component {
           <div>
             <div>
               <h1>Create Account</h1>
-              <h3>Please Create an Account to place an order</h3>
+              <h4>Please Create an Account to place an order</h4>
             </div>
             <div>
               <input
@@ -87,19 +87,20 @@ class Login extends Component {
                 id="loginpasswordinput"
               ></input>
             </div>
-            <div>
-              <div>
-                <button onClick={this.registerUser} id="signinbutton">
-                  CREATE
-                </button>
-                <h4 onClick={this.onToggle}>Back to Login</h4>
-              </div>
+
+            <div id="loginbuttonsandroutes">
+              <button onClick={this.registerUser} id="signinbutton">
+                CREATE
+              </button>
+              <h4 id="loginroutes" onClick={this.onToggle}>
+                Back to Login
+              </h4>
             </div>
           </div>
         ) : (
           <div>
             <h1>Log In</h1>
-            <h3>Please Log in to place an order</h3>
+            <h4>Please Log in to place an order</h4>
             <div>
               <input
                 value={login_email}
@@ -119,13 +120,14 @@ class Login extends Component {
                 id="loginpasswordinput"
               ></input>
             </div>
-            <div>
-              <div>
-                <button onClick={this.loginUser} id="signinbutton">
-                  Sign In
-                </button>
-                <h4 onClick={this.onToggle}>CREATE ACCOUNT</h4>
-              </div>
+
+            <div id="loginbuttonsandroutes">
+              <button onClick={this.loginUser} id="signinbutton">
+                Sign In
+              </button>
+              <h4 id="loginroutes" onClick={this.onToggle}>
+                CREATE ACCOUNT
+              </h4>
             </div>
           </div>
         )}
