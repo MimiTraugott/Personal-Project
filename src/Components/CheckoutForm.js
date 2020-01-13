@@ -33,7 +33,7 @@ function CheckoutForm(props) {
     <div className="checkout">
       <p>Would you like to complete your purchase?</p>
       <CardElement />
-      <button onClick={submit}>Purchase</button>
+      <button className="purchase-button" onClick={submit}>Purchase</button>
     </div>
   );
 }

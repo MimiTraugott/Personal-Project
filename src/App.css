@@ -133,8 +133,11 @@
 }
 
 .businessName {
-  font-size: 85px;
+  font-size: 150px;
   color: white;
+  /* font-weight: bold; */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
 }
 @media (max-width: 650px){
   .businessName{
@@ -209,18 +212,75 @@
   font-family: "Nanum Gothic", sans-serif;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-top: 200px;
 }
 .aboutLogin {
   margin-bottom: 30px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 5px solid lightgray;
+  height: 75px;
+  width: 250px;
+  font-size: 36px;
+  padding-bottom:0;
+  margin-bottom: 30px;
+}
+.aboutLogin:hover {
+  color: #edc646;
+  width: 300px;
 }
 .aboutOrderNow {
   margin-bottom: 30px;
-}
-
-.aboutChip {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 5px solid lightgray;
+  height: 75px;
+  width: 250px;
+  font-size: 36px;
+  padding-bottom:0;
   margin-bottom: 30px;
 }
+.aboutOrderNow:hover {
+  color: #edc646;
+  width: 300px;
+}
+.aboutChip {
+  margin-bottom: 30px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 5px solid lightgray;
+  height: 75px;
+  width: 250px;
+  font-size: 36px;
+  padding-bottom:0;
+  margin-bottom: 30px;
+}
+.aboutChip:hover{
+  color: #edc646;
+  width: 300px;
+}
+.logout-button {
+  margin-bottom: 30px;
+  margin-left: 925px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 5px solid lightgray;
+  height: 75px;
+  width: 250px;
+  font-size: 36px;
+  padding-bottom:0;
+  margin-bottom: 30px;
+}
+.logout-button:hover{
+  color: #edc646;
+  width: 300px;
+}
+
 
 @media (max-width: 650px) {
   .aboutLogin {
@@ -273,7 +333,6 @@
 /* ORDER FORM */
 .order-page{
   display: flex;
-  justify-content: space-between;
 }
 .order-page-image {
   background-image: url("https://www.chelseasmessyapron.com/wp-content/uploads/2019/02/Bakery-Style-Chocolate-Chip-Cookies-1.jpg");
@@ -316,8 +375,6 @@ li{
   margin-bottom: 76px;
   margin-right: 0px;
   padding-right:150px;
- 
-
 }
 .cart-product{
   font-size: 24px;
@@ -361,9 +418,36 @@ li{
     align-items: flex-start;
     align-content: stretch;
     margin-top: 50px;
-
 }
+
 .cart-price {
   font-size: 16px;
+}
+.cart-totaling{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-end;
+  align-content: stretch;
+  margin-right: 365px;
+  margin-left: 435px;
+  border-top: 5px solid #f3f3f3;
+}
+.keep-shopping-button{
+  background-color: #f3f3f3;
+}
+.purchase-total{
+  font-size: 24px;
+}
+.checkout{
+  display: flex;
+  flex-direction: column;
+}
+.purchase-button{
+  height: 25px;
+  width: 100px;
+  margin-left: 300px;
+  background-color: #f3f3f3;
 }
 

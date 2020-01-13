@@ -50,13 +50,15 @@ const ShoppingCart = props => {
             ))
           : null}
       </div>
-      <h1>Cart Total ${total}</h1>
+      <div className="cart-totaling">
+      <h1 className="purchase-total">Your Purchase Total Is ${total}.00</h1>
       <Link to="/orderpage">
-        <button>Keep Shopping</button>
+        <button className="keep-shopping-button">Keep Shopping</button>
       </Link>
       <Elements>
         <CheckoutForm />
       </Elements>
+      </div>
     </div>
   );
 };

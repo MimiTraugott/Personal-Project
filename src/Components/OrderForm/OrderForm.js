@@ -55,7 +55,7 @@ class OrderForm extends Component {
         <div className="order-page-image"></div>
         <div className="order-page-form">
           <h1 className="order-h1">ORDER CHIP COOKIES</h1>
-          <h3 className='order-h3-price'>$10.00</h3>
+          <h3 className="order-h3-price">$10.00</h3>
           <select class="select-css" onChange={e => this.handleChange(e)}>
             {mappedProducts}
           </select>
@@ -87,13 +87,12 @@ class OrderForm extends Component {
                   + white chocolate chips
                 </li>
                 <li>
-                  -CHIP™ REFILLABLE TIN — initial tins comes with four OG cookies
-                  and can refilled with four cookies (any flavor available at
-                  the time of purchase) at any chip location in 2020 for just $7
-                  (plus tax).
+                  -CHIP™ REFILLABLE TIN — initial tins comes with four OG
+                  cookies and can refilled with four cookies (any flavor
+                  available at the time of purchase) at any chip location in
+                  2020 for just $7 (plus tax).
                 </li>
               </ul>
-              <p></p>
             </div>
           </div>
         </div>

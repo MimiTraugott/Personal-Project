@@ -90,7 +90,7 @@ class Login extends Component {
 
             <div id="loginbuttonsandroutes">
               <button onClick={this.registerUser} id="signinbutton">
-                CREATE
+                Create Account
               </button>
               <h4 id="loginroutes" onClick={this.onToggle}>
                 Back to Login
