@@ -9,7 +9,7 @@ import CartItem from "./CartItem";
 import CheckoutForm from "./CheckoutForm";
 
 const ShoppingCart = props => {
-  let [itemsChanged, setItemsChanged] = useState(false)
+  let [itemsChanged, setItemsChanged] = useState(false);
 
   useEffect(() => {
     axios
@@ -23,23 +23,30 @@ const ShoppingCart = props => {
   const deleteItem = id => {
     axios.delete(`/api/cart/${id}`).then(res => {
       alert("Cookie Deleted");
-      props.setCart();
+      props.setCart(props.cart.cart.filter((item)=>{
+        return item.product_id !== id
+      }));
     });
   };
-
+  console.log("cart", props.cart);
+  console.log("cart.cart", props.cart.cart);
 
   //calculate cart total
   let total = props.cart.cart
     .map(el => el.price * el.qty)
     .reduce((acc, cur) => acc + cur, 0);
-  console.log(total);
 
   return (
     <div>
       <div>
         {props.cart.cart.length
           ? props.cart.cart.map((el, i) => (
-              <CartItem setItemsChanged={setItemsChanged} data={el} key={i} deleteItem={deleteItem} />
+              <CartItem
+                setItemsChanged={setItemsChanged}
+                data={el}
+                key={i}
+                deleteItem={deleteItem}
+              />
             ))
           : null}
       </div>

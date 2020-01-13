@@ -19,10 +19,13 @@ class CartItem extends Component {
       )
       .then(res => {
         alert("Your new quantity has been saved");
-        this.toggleEdit()
+        this.toggleEdit();
         this.props.setItemsChanged(Math.random());
       })
-      .catch(err => {console.log('edit item err', err);alert("there was an error in updating your item")});
+      .catch(err => {
+        console.log("edit item err", err);
+        alert("there was an error in updating your item");
+      });
   };
 
   toggleEdit = () => {
@@ -39,34 +42,36 @@ class CartItem extends Component {
       price,
       product_id
     } = this.props.data;
-    let newPrice = price * this.state.quantity
+    let newPrice = price * this.state.quantity;
     return (
-      <div>
-        <h1>{product_name}</h1>
-        <img src={product_image} alt="Cookies"></img>
-        <h3>{product_description}</h3>
-        <h3>${newPrice}</h3>
-        <input
-          disabled={!this.state.editing}
-          onChange={e => this.handleChange(e)}
-          type="number"
-          name="quantity"
-          value={this.state.quantity}
-          min="1"
-          max="20"
-        ></input>
-        <button onClick={() => this.props.deleteItem(product_id)}>
-          Remove from Cart
-        </button>
-        {this.state.editing ? (
-          <button
-            onClick={() => this.handleSave(this.props.data.current_cart_id)}
-          >
-            Save
+      <div className="shopping-cart-main">
+        <div className="cart-item-main">
+          <img src={product_image} alt="Cookies"></img>
+          <h1>{product_name}</h1>
+          <h3>{product_description}</h3>
+          <h3>${newPrice}</h3>
+          <input
+            disabled={!this.state.editing}
+            onChange={e => this.handleChange(e)}
+            type="number"
+            name="quantity"
+            value={this.state.quantity}
+            min="1"
+            max="20"
+          ></input>
+          <button onClick={() => this.props.deleteItem(product_id)}>
+            Remove from Cart
           </button>
-        ) : (
-          <button onClick={() => this.toggleEdit()}>Edit</button>
-        )}
+          {this.state.editing ? (
+            <button
+              onClick={() => this.handleSave(this.props.data.current_cart_id)}
+            >
+              Save
+            </button>
+          ) : (
+            <button onClick={() => this.toggleEdit()}>Edit</button>
+          )}
+        </div>
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, combineReducers} from 'redux'
+import {createStore, applyMiddleware, combineReducers, compose} from 'redux'
 import promiseMiddleware from 'redux-promise-middleware'
 import reducer from './reducer';
 import cartReducer from './cartReducer'
@@ -8,4 +8,8 @@ const rootReducer = combineReducers({
     cart: cartReducer
 })
 
-export default createStore(rootReducer, applyMiddleware(promiseMiddleware))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+export default createStore(rootReducer, composeEnhancers(
+applyMiddleware(promiseMiddleware)));
+

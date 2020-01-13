@@ -51,39 +51,49 @@ class OrderForm extends Component {
       );
     });
     return (
-      <div className="main-order-page">
-        <div className="order-page">
+      <div className="order-page">
+        <div className="order-page-image"></div>
+        <div className="order-page-form">
+          <h1 className="order-h1">ORDER CHIP COOKIES</h1>
+          <h3 className='order-h3-price'>$10.00</h3>
+          <select class="select-css" onChange={e => this.handleChange(e)}>
+            {mappedProducts}
+          </select>
           <div>
-            <div className="order-page-image"></div>
-          </div>
-          <div className="order-page-form">
-            <h1>ORDER CHIP COOKIES</h1>
-            <h3>$10.00</h3>
-            <select class="select-css" onChange={e => this.handleChange(e)}>
-              {mappedProducts}
-            </select>
+            <Link to="/shoppingcart">
+              <button class="addtocart" onClick={this.addToCart}>
+                Add to Cart
+              </button>
+            </Link>
             <div>
-              <Link to="/shoppingcart">
-                <button class="addtocart" onClick={this.addToCart}>
-                  Add to Cart
-                </button>
-              </Link>
-              <div>
-                <ul>
-                  Four big, warm, melt in your mouth, delicious Chip™ cookies.
-                  <li>
-                    OG™ — our signature gourmet award winning chocolate chip
-                    cookie
-                  </li>
-                  <li>
-                    Mini OGs — our signature gourmet awarding winning chocolate
-                    chip cookie miniaturized | 9 per box | |January CHIP™ OF THE
-                    MONTH|
-                  </li>
-                  <li></li>
-                </ul>
-                <p></p>
-              </div>
+              <ul>
+                Four big, warm, melt in your mouth, delicious Chip™ cookies.
+                <li>
+                  -OG™ — our signature gourmet award winning chocolate chip
+                  cookie
+                </li>
+                <li>
+                  -Mini OGs — our signature gourmet awarding winning chocolate
+                  chip cookie miniaturized | 9 per box | |January CHIP™ OF THE
+                  MONTH|
+                </li>
+                <li>
+                  -Hot Cocoa Chip™ — gourmet cookie made with Stephen's hot
+                  chocolate and stuffed with marshmallows + white chocolate
+                  chips
+                </li>
+                <li>
+                  -Fruity Pebbles Chip™ — gourmet cookie made with fruity cereal
+                  + white chocolate chips
+                </li>
+                <li>
+                  -CHIP™ REFILLABLE TIN — initial tins comes with four OG cookies
+                  and can refilled with four cookies (any flavor available at
+                  the time of purchase) at any chip location in 2020 for just $7
+                  (plus tax).
+                </li>
+              </ul>
+              <p></p>
             </div>
           </div>
         </div>
