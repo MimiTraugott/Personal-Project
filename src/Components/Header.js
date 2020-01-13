@@ -18,7 +18,7 @@ function Header() {
               src={
                 location.pathname === "/"
                   ? "//cdn.shopify.com/s/files/1/1582/4389/files/chip_white_x95.png?v=1524535516"
-                  : "//www.globenewswire.com/news-release/logo/574493/0/574493.jpg?lastModified=11%2F08%2F2018%2013%3A33%3A16&size=2&v=1648395"
+                  : "https://cdn.shopify.com/s/files/1/1582/4389/files/chip_gold_x95.png"
               }
               alt="chip cookies"></img>
           </Link>

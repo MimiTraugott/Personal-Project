@@ -44,13 +44,17 @@ class CartItem extends Component {
     } = this.props.data;
     let newPrice = price * this.state.quantity;
     return (
-      <div className="shopping-cart-main">
+      <div>
         <div className="cart-item-main">
-          <img src={product_image} alt="Cookies"></img>
-          <h1>{product_name}</h1>
-          <h3>{product_description}</h3>
-          <h3>${newPrice}</h3>
+          <img className="cart-image" src={product_image} alt="Cookies"></img>
+          <div className="cart-items-description">
+            <h1 className="cart-product">{product_name}</h1>
+            <h3 className="product-description">{product_description}</h3>
+            <h3 className="cart-price">${newPrice}</h3>
+          </div>
+          <div className="cart-inputs-and-buttons">
           <input
+            className="change-qty"
             disabled={!this.state.editing}
             onChange={e => this.handleChange(e)}
             type="number"
@@ -59,18 +63,25 @@ class CartItem extends Component {
             min="1"
             max="20"
           ></input>
-          <button onClick={() => this.props.deleteItem(product_id)}>
-            Remove from Cart
+          <button
+            className="remove-item"
+            onClick={() => this.props.deleteItem(product_id)}
+          >
+            Delete
           </button>
           {this.state.editing ? (
             <button
+              className="edit-button"
               onClick={() => this.handleSave(this.props.data.current_cart_id)}
             >
               Save
             </button>
           ) : (
-            <button onClick={() => this.toggleEdit()}>Edit</button>
+            <button className="save-button" onClick={() => this.toggleEdit()}>
+              Edit
+            </button>
           )}
+          </div>
         </div>
       </div>
     );
